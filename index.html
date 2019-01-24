@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-touch-fullscreen" content="yes">
+  <meta name="format-detection" content="telephone=no">
+  <title>知命手机官网</title>
+  <script>
+    //rem布局
+    (function (designWidth, maxWidth) {
+      var doc = document,
+        win = window,
+        docEl = doc.documentElement,
+        remStyle = document.createElement("style"),
+        tid;
+
+      function refreshRem() {
+        var width = docEl.getBoundingClientRect().width;
+        maxWidth = maxWidth || 540;
+        width > maxWidth && (width = maxWidth);
+        var rem = width * 100 / designWidth;
+        remStyle.innerHTML = 'html{font-size:' + rem + 'px;}';
+      }
+
+      if (docEl.firstElementChild) {
+        docEl.firstElementChild.appendChild(remStyle);
+      } else {
+        var wrap = doc.createElement("div");
+        wrap.appendChild(remStyle);
+        doc.write(wrap.innerHTML);
+        wrap = null;
+      }
+      //要等 wiewport 设置好后才能执行 refreshRem，不然 refreshRem 会执行2次；
+      refreshRem();
+
+      win.addEventListener("resize", function () {
+        clearTimeout(tid); //防止执行两次
+        tid = setTimeout(refreshRem, 300);
+      }, false);
+
+      win.addEventListener("pageshow", function (e) {
+        if (e.persisted) { // 浏览器后退的时候重新计算
+          clearTimeout(tid);
+          tid = setTimeout(refreshRem, 300);
+        }
+      }, false);
+
+      if (doc.readyState === "complete") {
+        doc.body.style.fontSize = "16px";
+      } else {
+        doc.addEventListener("DOMContentLoaded", function (e) {
+          doc.body.style.fontSize = "16px";
+        }, false);
+      }
+    })(750, 750);
+  </script>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/swiper.min.css">
+  <script src="./js/swiper.min.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <header>
+      <div class="header-wrap">
+        <div class="logo-box">
+          <i class="logo-icon"></i>
+          <strong>知命</strong>
+        </div>
+        <div class="menu-box"></div>
+      </div>
+    </header>
+    <main>
+      <section class="swiper-box">
+        <div class="phone-img"></div>
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" style="background-image:url(img/1.png);background-size:100% 100%;background-repeat:no-repeat;"></div>
+            <div class="swiper-slide" style="background-image:url(img/2.png);background-size:100% 100%;background-repeat:no-repeat"></div>
+            <div class="swiper-slide" style="background-image:url(img/3.png);background-size:100% 100%;background-repeat:no-repeat;"></div>
+            <div class="swiper-slide" style="background-image:url(img/4.png);background-size:100% 100%;background-repeat:no-repeat;"></div>
+          </div>
+        </div>
+      </section>
+      <section class="download-box">
+        <div class="download-wrap">
+          <div class="system-item">
+            <a href="javscript:;" onclick="downloadAppChange('ios')" class="download-btn ios">
+              <h2 class="system-name">iphone</h2>
+              <p class="system-ponit">适用iphone/ipad下载</p>
+            </a>
+            <p class="system-version">最新版本：v4.96</p>
+            <p class="system-time">发布时间：2019年1月15</p>
+          </div>
+          <div class="system-item ">
+            <a href="javscript:;" onclick="downloadAppChange('android')" class="download-btn android">
+              <h2 class="system-name">Android</h2>
+              <p class="system-ponit">适用android版本下载</p>
+            </a>
+            <p class="system-version">最新版本：v4.96</p>
+            <p class="system-time">发布时间：2019年1月15</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-box">
+        <h4 class="footer-title">【各大手机应用市场均可下载知命APP</h4>
+        <div class="footer-small">
+          <p>深圳市云桌数码科技有限公司版权所有</p>
+          <p>Copyright@2011-2019 DiscoveryBay.All Rights Reserved</p>
+          <p>粤ICP备 14048018号-1</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // 初始化swiper
+    var swiper = new Swiper('.swiper-container', {
+      effect: 'coverflow',
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      loop: true,
+      autoplay: {
+        disableOnInteraction: false
+      },
+      coverflowEffect: {
+        rotate: 10,
+        depth: 500,
+        stretch: -44,
+        slideShadows: false,
+      },
+    });
+    // download下载事件 
+    function downloadAppChange(system) {
+      if (isWeiXin()) {
+        if (system === 'ios') {
+          console.log('微信内ios下载')
+          // window.location.href = "下载地址"
+        } else if (system === 'android') {
+          console.log('微信内android下载')
+          // window.location.href = "下载地址"
+        }
+      } else {
+        if (system === 'ios') {
+          console.log('ios下载')
+          // window.location.href = "下载地址"
+
+        } else if (system === 'android') {
+          console.log('android下载')
+          // window.location.href = "下载地址"
+        }
+      }
+    }
+
+    // 是否为微信浏览器
+    function isWeiXin() {
+      var ua = window.navigator.userAgent.toLowerCase();
+      if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  </script>
+</body>
+
+</html>

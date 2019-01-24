@@ -1,0 +1,192 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  font-family: "Helvetica Neue",
+    Helvetica,
+    "PingFang SC",
+    "Hiragino Sans GB",
+    "Microsoft YaHei",
+    "微软雅黑",
+    Arial,
+    sans-serif;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #f5f5f5;
+  -webkit-text-size-adjust: 100%;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background: url('../img/img_beijing.png') no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+.header-wrap {
+  display: flex;
+  padding: 0 0.2rem;
+  justify-content: space-between;
+}
+
+.logo-box .logo-icon {
+  width: 0.46rem;
+  height: 0.46rem;
+  display: inline-block;
+  background: url('../img/icon_zhiming.png') no-repeat;
+  background-size: 100% 100%;
+  vertical-align: middle;
+}
+
+.logo-box strong {
+  vertical-align: middle;
+  font-size: 0.3rem;
+  color: #333333;
+}
+
+.swiper-box {
+  position: relative;
+
+}
+
+.swiper-container {
+  height: 6.86rem;
+  box-sizing: border-box;
+  padding: 0.9rem 0 0.9rem !important;
+}
+
+.swiper-slide {
+  width: 2.85rem !important;
+  height: 5.2rem !important;
+}
+
+.phone-img {
+  position: absolute;
+  height: 7.17rem;
+  width: 3.78rem;
+  background: url('../img/img_shounjimoxing.png') no-repeat;
+  background-size: 100% 100%;
+  z-index: 3;
+  left: 50%;
+  margin-left: -1.89rem;
+}
+
+.download-wrap {
+  padding: 0.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.system-item {
+  margin-right: 0.6rem;
+  flex: 1;
+}
+
+
+.system-item:nth-last-child(1) {
+  margin-right: 0;
+}
+
+.download-btn {
+  height: 1.06rem;
+  border-radius: 0.16rem;
+  -webkit-border-radius: 0.16rem;
+  -moz-border-radius: 0.16rem;
+  -ms-border-radius: 0.16rem;
+  -o-border-radius: 0.16rem;
+  box-sizing: border-box;
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.download-btn.ios {
+  background: linear-gradient(to bottom, #42dc9e, #02a966);
+  background: -webkit-linear-gradient(to bottom, #42dc9e, #02a966);
+  position: relative;
+}
+
+.download-btn.ios::before {
+  content: "";
+  width: 0.54rem;
+  height: 0.64rem;
+  background: url('../img/icon_ios.png') no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  left: 0.2rem;
+  top: 50%;
+  margin-top: -0.32rem;
+}
+
+.download-btn.android {
+  background: linear-gradient(to bottom, #55a4eb, #25639c);
+  background: -webkit-linear-gradient(to bottom, #42dc9e, #02a966);
+  position: relative;
+}
+
+.download-btn.android::before {
+  content: "";
+  width: 0.54rem;
+  height: 0.64rem;
+  background: url('../img/icon_android.png') no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  left: 0.2rem;
+  top: 50%;
+  margin-top: -0.32rem;
+}
+
+.download-btn .system-name {
+  font-size: 0.32rem;
+  color: #ffffff;
+  font-weight: bold;
+  margin-bottom: 0.1rem;
+}
+
+.download-btn .system-ponit {
+  font-size: 0.18rem;
+  color: #ffffff;
+}
+
+.system-version,
+.system-time {
+  font-size: 0.23rem;
+  color: #333333;
+  padding: 0.1rem 0.2rem 0;
+  box-sizing: border-box;
+}
+
+.footer-box {
+  padding: 0 0.1rem 0.1rem;
+}
+
+.footer-title {
+  font-size: 0.28rem;
+  color: #333333;
+  font-weight: bold;
+  margin-bottom: 0.7rem;
+  text-align: center;
+}
+
+.footer-small p {
+  font-size: 0.18rem;
+  color: #333333;
+  line-height: 1.4;
+  text-align: center;
+}
